@@ -28,7 +28,7 @@ management system.
    - **React**: For building the interactive and dynamic user interface.
    - **TailwindCSS**: For responsive and customizable UI styling.
 2. **Backend**:
-   - **Node.js** and **Express**: For creating the backend RESTful API and server-side logic.
+   - **Node.js** and **Nest.js**: For creating the backend RESTful API and server-side logic.
    - **MongoDB**: A NoSQL database to store user information, medical records, and other system data.
    - **Mongoose**: An ODM (Object Data Modeling) library to interact with MongoDB.
 3. **Real-time Communication**:
