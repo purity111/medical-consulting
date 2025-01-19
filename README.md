@@ -22,23 +22,82 @@ management system.
 
 ![img.png](./public/images/img.jpg)
 
-## Building your environment
+## Technology Stack
 
-### Requirements
+1. **Frontend**:
+   - **React**: For building the interactive and dynamic user interface.
+   - **TailwindCSS**: For responsive and customizable UI styling.
+2. **Backend**:
+   - **Node.js** and **Express**: For creating the backend RESTful API and server-side logic.
+   - **MongoDB**: A NoSQL database to store user information, medical records, and other system data.
+   - **Mongoose**: An ODM (Object Data Modeling) library to interact with MongoDB.
+3. **Real-time Communication**:
+   - **Socket.io**: Used to implement an Online/Offline feature for doctors. Doctors can be considered Online if available for consultations or Offline if unavailable (during consultations or logged out).
+   - **WebRTC & PeerJS**: For enabling video consultations. WebRTC handles the media transfer, while PeerJS is used for establishing peer-to-peer connections.
 
-#### To install
+## API Documentation
 
-- Node: v20.8.0
+### API Base URL:
 
-#### Dependencies (Included)
+[https://harmore.herokuapp.com](https://harmore.herokuapp.com)
 
-- React: 18.2.0
-- Mantine (React UI framework): 7.1.7
+### Routes:
 
-### Running your development environment
+#### **Patient Routes (Requires JWT Token)**
 
-`npm install` first time run to install node modules from package.json
+| Endpoint              | Method | Action              | Access Level                  |
+| --------------------- | ------ | ------------------- | ----------------------------- |
+| `/api/v1/patient`     | GET    | Get all patients    | Doctor, Staff                 |
+| `/api/v1/patient/:id` | GET    | Get patient by ID   | Doctor, Staff, Patient (self) |
+| `/api/v1/patient`     | POST   | Add new patient     | Staff                         |
+| `/api/v1/patient/:id` | PUT    | Update patient info | Patient (self)                |
+| `/api/v1/patient/:id` | DELETE | Delete patient      | Staff                         |
 
-`npm run dev` for running the application in development mode
+#### **Doctor Routes (Requires JWT Token)**
 
-`npm run build` build for production
+| Endpoint             | Method | Action             | Access Level                  |
+| -------------------- | ------ | ------------------ | ----------------------------- |
+| `/api/v1/doctor`     | GET    | Get all doctors    | Patient, Staff                |
+| `/api/v1/doctor/:id` | GET    | Get doctor by ID   | Patient, Staff, Doctor (self) |
+| `/api/v1/doctor`     | POST   | Add a new doctor   | Staff                         |
+| `/api/v1/doctor/:id` | PUT    | Update doctor info | Doctor (self)                 |
+| `/api/v1/doctor/:id` | DELETE | Delete doctor      | Staff                         |
+
+#### **Staff Routes (Requires JWT Token)**
+
+| Endpoint            | Method | Action            | Access Level |
+| ------------------- | ------ | ----------------- | ------------ |
+| `/api/v1/staff`     | GET    | Get all staff     | Staff        |
+| `/api/v1/staff/:id` | GET    | Get staff by ID   | Staff        |
+| `/api/v1/staff`     | POST   | Add a new staff   | Staff        |
+| `/api/v1/staff/:id` | PUT    | Update staff info | Staff        |
+| `/api/v1/staff/:id` | DELETE | Delete staff      | Staff        |
+
+#### **Medical Record Routes (Requires JWT Token)**
+
+| Endpoint                    | Method | Action           | Access Level    |
+| --------------------------- | ------ | ---------------- | --------------- |
+| `/api/v1/medicalRecord`     | GET    | Get all records  | Patient, Doctor |
+| `/api/v1/medicalRecord/:id` | GET    | Get record by ID | Patient, Doctor |
+| `/api/v1/medicalRecord`     | POST   | Add new record   | Doctor          |
+| `/api/v1/medicalRecord/:id` | PUT    | Update record    | Doctor          |
+| `/api/v1/medicalRecord/:id` | DELETE | Delete record    | Doctor          |
+
+#### **Specialization Routes (Requires JWT Token)**
+
+| Endpoint                     | Method | Action                   | Access Level           |
+| ---------------------------- | ------ | ------------------------ | ---------------------- |
+| `/api/v1/specialization`     | GET    | Get all specializations  | Patient, Doctor, Staff |
+| `/api/v1/specialization/:id` | GET    | Get specialization by ID | Patient, Staff         |
+| `/api/v1/specialization`     | POST   | Add a new specialization | Staff                  |
+| `/api/v1/specialization/:id` | PUT    | Update specialization    | Staff                  |
+| `/api/v1/specialization/:id` | DELETE | Delete specialization    | Staff                  |
+
+#### **Authentication Routes (No JWT Token Needed)**
+
+| Endpoint                   | Method | Action               | Access Level       |
+| -------------------------- | ------ | -------------------- | ------------------ |
+| `/api/v1/patient/login`    | POST   | Login (Generate JWT) | Registered Patient |
+| `/api/v1/patient/register` | POST   | Register new patient | All users          |
+| `/api/v1/doctor/login`     | POST   | Login (Generate JWT) | Doctor             |
+| `/api/v1/staff/login`      | POST   | Login (Generate JWT) | Staff              |
