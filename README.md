@@ -1,26 +1,11 @@
-# Hayat Hospital Management System
+# Medical Consultant and Management System
+AI-powered medical consultant platform designed to enhance healthcare efficiency, accessibility, and quality. With J-Doc, patients can access medical consultation anytime, anywhere, through an AI-enabled virtual doctor, and doctors can streamline their workflow, focusing on finalizing diagnoses and treatment plans. Senior doctors verify final prescriptions, adding a layer of reliability to AI recommendations, optimizing their efficiency, and reducing administrative overhead.
 
-### Background
-
-Today’s medical diagnoses are a critical part of our patient experience, problems related to getting a
-diagnosis from multiple hospitals are documented as diagnosis history, for example, currently if a patient
-moves from one hospital to another, they need to describe the whole problem they are facing again to the
-new doctor while showing the radiological image and orally speak out what previous doctors diagnoses
-where. Furthermore, privacy breaches happen when an unauthorized entity accesses the printed or digital
-patient diagnosis of radiological images resulting in a risk of patient data misuse or exploitation.
-
-### Aim
-
-Our project aims to revolutionize healthcare by creating a hospital management system that will implement
-techniques to securely incorporate patient medical records with radiological images. This will allow for
-integration between radiological images and patient records along with the ability to track medical
-diagnoses easily, with the goal of creating a secure and comprehensive healthcare system that facilitates
-better patient monitoring and diagnosis, ultimately creating a more efficient and secure hospital
-management system.
-
-### High level system architecture
-
-![img.png](./public/images/img.jpg)
+## Screenshots
+[![dashboard.png](https://i.postimg.cc/9XqsJw0H/dashboard.png)](https://postimg.cc/CdSvK1bc)
+[![admin-dashboard.png](https://i.postimg.cc/tCpDWsV5/admin-dashboard.png)](https://postimg.cc/mhpQG2jz)
+[![chatbot.png](https://i.postimg.cc/c1QXvR6C/chatbot.png)](https://postimg.cc/RqZc8n7x)
+[![doctor.png](https://i.postimg.cc/sDmmc3YR/doctor.png)](https://postimg.cc/vc158F2P)
 
 ## Technology Stack
 
